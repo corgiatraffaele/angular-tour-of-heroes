@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+  // decoratore
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'angular-tour-of-heroes';
+  title: string = 'Tour of Heroes';
 }
