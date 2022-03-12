@@ -1,1 +1,26 @@
-<h2>{{hero}}</h2>
+<!-- <h2>{{heros.name| uppercase }}</h2> 
+        -- doppia {{}} fa il bind della variabile ,
+            quindi la stampa di una variabile contenuta nel file.ts
+            | è una pipe, funzione che si può utilizzare in html mettendo il simbolo | e poi la funzione 
+
+<div><span>id: </span>{{heros.id}}</div> -->
+
+<!--
+<div>
+  <label for="name">Hero name: </label>
+  <input id="name" [(ngModel)]="heroes.name" placeholder="name">
+
+          [(ngModel)] fa parte di un modulo(contenitore di servizi/componenti/direttive..etc) non nativo di angular
+            serve per fare in two-ways binding 
+</div>
+
+ <div *ngFor="let x of values">
+    <h1>Value: {{x}}</h1>
+</div> Va a prendere i valori dell'array values -->
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul>
