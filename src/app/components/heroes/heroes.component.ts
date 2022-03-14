@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HEROES } from 'src/app/mock-data/mock-heroes';
+import { HEROESMOCKDATA } from 'src/app/mock-data/mock-heroes';
 import { Hero } from 'src/app/models/hero'; //importa il file hero.ts(il .ts viene omesso)
 
 @Component({   //quando trovi l'app-heroes buttaci quel html e scss//
@@ -8,20 +8,20 @@ import { Hero } from 'src/app/models/hero'; //importa il file hero.ts(il .ts vie
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
+  //variabili che passo alla view
 
-  heroes: Hero[] = HEROES;
-
-
-
-
-
-    //values: number[] = [2,6,8,1570]
-
-
+  heroes: Hero[] = HEROESMOCKDATA;
+  selectedHero?: Hero; // ..? dice che hero può essere null
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  onSelect(pippo:Hero){ 
+     
+    //this.-> mi sto riferendo alla classe,senza lo cercherebbe solo dentro a onSelect()
+   
+     this.selectedHero = pippo;
+  }
 }
