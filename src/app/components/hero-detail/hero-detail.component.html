@@ -1,0 +1,27 @@
+
+
+<!-- Per passare una variabile esterna dal padre ad un componente si scrive:
+<app-component [variabile esterna da far passare]></app-comp..>
+    []-> per passare in input
+    ()-> per passare in output ( ad esempio (click))
+   -->
+
+
+
+<div *ngIf="hero ">
+
+    <!-- ngi fserve per stampare un pezzo di html in base ad una condizione
+        ad esempio  <div *ngIf="Hero !=u ndefined " > stampa se selected hero è diverso da undefined !-->
+
+    <h2><span>id:</span>
+        {{hero.name | uppercase}} Details</h2>
+    <div>id: {{hero.id}}</div>
+
+    <div>
+        <label for="hero-name ">Hero name: </label>
+        <input id="hero-name " [(ngModel)]="hero.name " placeholder="name ">
+    </div>
+</div>
+
+<!-- [class.selected]="..una condizione che deve valere true
+     or false.. " modo dinamico per aggiungere o togliere una classe, quando true aggiunge la classe(selected), quando false la rimuove!-->
