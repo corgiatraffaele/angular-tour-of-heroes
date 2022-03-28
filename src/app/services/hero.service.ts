@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
 import { HEROESMOCKDATA } from '../mock-data/mock-heroes';
 import { Hero } from '../models/hero';
+import { MessageService } from './message.service';
 
 
 //questa classe è iniettabile @injectable quindi la posso richiamare
@@ -11,10 +12,14 @@ import { Hero } from '../models/hero';
 })
 export class HeroService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   //va a prendere la costante a parte e la restituisce
   getHeroes(): Observable<Hero[]> {
-    return of(HEROESMOCKDATA);   //off simula una chiamata http!
+    const HEROES: Observable<Hero[]> = of (HEROESMOCKDATA).pipe(delay(1000));
+
+    this.messageService.add('HeroService:fetched heroes');
+
+    return HEROES;   //off simula una chiamata http!
   }
 }

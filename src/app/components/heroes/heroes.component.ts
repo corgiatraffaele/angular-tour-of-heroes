@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'src/app/services/message.service';
 import { Hero } from '../../models/hero'; //importa il file hero.ts(il .ts viene omesso)
 import { HeroService } from '../../services/hero.service';
 
@@ -15,7 +16,8 @@ export class HeroesComponent implements OnInit {
 
 
   //const(nome:servizioDaImportare)/private: che non è disponibile all'HTML
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
 
@@ -28,12 +30,13 @@ export class HeroesComponent implements OnInit {
 
   }
 
-  onSelect(pippo: Hero) {
+  onSelect(hero: Hero) {
+    this.selectedHero = hero;
+    this.messageService.add('HeroesComponent: Selected hero id = ' + hero.id + ' and name = ' + hero.name);
 
-    //this.-> mi sto riferendo alla classe,senza lo cercherebbe solo dentro a onSelect()
-
-    this.selectedHero = pippo;
   }
+
+
 
 
   //quando verrà chiamato, richiama il servizio heroService che riempie l'array Hero
