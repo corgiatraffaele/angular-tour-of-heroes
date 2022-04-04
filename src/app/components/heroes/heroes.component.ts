@@ -12,7 +12,7 @@ export class HeroesComponent implements OnInit {
   //variabili che passo alla view
 
   heroes: Hero[] = [];
-  selectedHero?: Hero; // ..? dice che hero può essere null
+ // selectedHero?: Hero; // ..? dice che hero può essere null
 
 
   //const(nome:servizioDaImportare)/private: che non è disponibile all'HTML
@@ -32,11 +32,11 @@ export class HeroesComponent implements OnInit {
 
   }
 
-  onSelect(hero: Hero) {
+  /*onSelect(hero: Hero) {
     this.selectedHero = hero;
     this.messageService.add('HeroesComponent: Selected hero id = ' + hero.id + ' and name = ' + hero.name);
 
-  }
+  }*/
 
 
 
