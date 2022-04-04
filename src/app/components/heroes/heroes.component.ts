@@ -21,11 +21,13 @@ export class HeroesComponent implements OnInit {
 
   ngOnInit(): void {
 
+    console.log('HeroesComponent ngOnInit');
     //è un lifecyle hook -> nasce: quando viene chiamato(Oninit) 
     //muore quando non viene più chiamato (onDestroy)
     //quindi richiama subito getheroes che in questo caso riempie l'array
 
     this.getHeroes();
+
 
 
   }
@@ -48,8 +50,12 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().subscribe(response => {
       this.heroes = response;
     });
-
-
-
   }
+
+
+
+  ngOnDestroy(): void{
+    console.log('HeroesComponent ngOnDestroy()');
+  }
+
 }

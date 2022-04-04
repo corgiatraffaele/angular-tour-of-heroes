@@ -1,5 +1,10 @@
 <h1>{{title}}</h1>  
     <!-- qui viene sostituito con la variabile title-->
 
+    <nav><a routerLink="/heroes">Heroes</a>
+        <a routerLink="/dashboard">Dashboard</a>
+    </nav> 
+    <!-- link di navigazione, anzichè usare <a href> si usa < a routerLink>-->
+        
 <router-outlet> </router-outlet>
 <app-messages></app-messages>
