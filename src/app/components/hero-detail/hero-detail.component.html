@@ -12,7 +12,7 @@
         ad esempio  <div *ngIf="Hero !=u ndefined " > stampa se selected hero è diverso da undefined !-->
 
     <h2><span>id:</span>
-        {{hero.name | uppercase}} Details</h2>
+        {{hero.name | uppercase}} Details</h2> <!--pipe farà uppercase del valore di ingresso-->
     <div>id: {{hero.id}}</div>
 
     <div>
@@ -20,6 +20,10 @@
         <input id="hero-name " [(ngModel)]="hero.name " placeholder="name ">
     </div>
 </div>
+
+<button type="button" (click)="save()">save</button>
+
+<button type="button" (click)="goBack()">Go back</button>
 
 <!-- [class.selected]="..una condizione che deve valere true
      or false.. " modo dinamico per aggiungere o togliere una classe, quando true aggiunge la classe(selected), quando false la rimuove!-->
