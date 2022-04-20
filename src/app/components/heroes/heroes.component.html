@@ -5,6 +5,11 @@
 
 <div><span>id: </span>{{heros.id}}</div> -->
 
+<div *ngIf=" heroes.length == 0 ">
+  <span>LOADING HEROES...</span>
+</div>
+
+
 <!--
 <div>
   <label for="name">Hero name: </label>
@@ -17,23 +22,37 @@
  <div *ngFor="let x of values">
     <h1>Value: {{x}}</h1>
 </div> Va a prendere i valori dell'array values -->
+<div *ngIf="heroes.length > 0 ">
 
-<h2>My Heroes</h2>
-<ul class="heroes">
+  <h2>My Heroes</h2>
+  <ul class="heroes">
 
-  <li *ngFor="let hero of heroes">
-   <!-- <button [class.selected]="hero === selectedHero" type=" button " (click)="onSelect(hero) ">
+    <li *ngFor="let hero of heroes">
+      <!-- <button [class.selected]="hero === selectedHero" type=" button " (click)="onSelect(hero) ">
       <span class="badge ">{{hero.id}}</span>
       <span class="name ">{{hero.name}}</span>
     </button>-->
 
 
-    <a routerLink="/detail/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </a>
+      <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
+     
+      <button type="button" class="delete" title="delete hero"
+  (click)="delete(hero)">x</button>
 
-  </li>
-</ul>
-
+    </li>
+  </ul>
+</div>
 
 <!---<app-hero-detail [hero]='selectedHero'></app-hero-detail>-->
+
+<div>
+  <label for="new-hero">Hero name: </label>
+  <input id="new-hero" #heroName />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(heroName.value); heroName.value=''">
+    Add hero
+  </button>
+</div>
